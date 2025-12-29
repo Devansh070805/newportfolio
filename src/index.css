@@ -1,0 +1,33 @@
+/* src/index.css */
+
+/* 1. The Main Font (for "Hey, it's") */
+@font-face {
+  font-family: 'MoonHeading';  /* You can name this whatever you want */
+  src: url('./assets/fonts/typo-draft-simple-demo.regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 2. The Accent Font (for "Dev") */
+@font-face {
+  font-family: 'DevSignature'; /* You can name this whatever you want */
+  src: url('./assets/fonts/typo-draft-demo.regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 300vh;          /* gives scroll room */
+  font-family: system-ui, sans-serif;
+  background: #0b0b0b;
+}
+
+#root {
+  height: 100%;
+}

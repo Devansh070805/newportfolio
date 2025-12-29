@@ -1,0 +1,23 @@
+.fox-wagging {
+  /* 1. FORCE DIMENSIONS */
+  display: block !important;
+  width: 1660px !important; 
+  height: 2380px !important; 
+
+  /* 2. THE IMAGE SOURCE */
+  background-image: url('/fox-sprite.png');
+  background-repeat: no-repeat;
+  background-size: 26560px 2380px; 
+  
+  /* 3. DEBUG COLORS (Delete these later) */
+  background-color: hotpink; /* Shows if image is missing */
+  border: 50px solid lime;   /* Shows edges */
+
+  /* 4. ANIMATION */
+  animation: play-wag 1.5s steps(16) infinite; 
+}
+
+@keyframes play-wag {
+  from { background-position: 0px; }
+  to { background-position: -26560px; }
+}
