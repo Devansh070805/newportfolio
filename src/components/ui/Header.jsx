@@ -2,11 +2,21 @@ import React from "react";
 
 export const Header = () => {
   
-  // Helper to scroll smoothly to sections
+  // --- FIX: Offset Scroll Logic ---
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      // 1. Get the element's position relative to the viewport
+      const elementPosition = element.getBoundingClientRect().top;
+      
+      // 2. Add current scroll position to get absolute position
+      // 3. Subtract 100px (approx header height + padding)
+      const offsetPosition = elementPosition + window.scrollY - 25; 
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
     }
   };
 
@@ -23,36 +33,36 @@ export const Header = () => {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      padding: "20px 5vw", // Responsive side padding
+      padding: "20px 5vw",
       boxSizing: "border-box",
       
-      // Visual Style (Glass Effect)
-      zIndex: 1000, // Always on top
-      backdropFilter: "blur(10px)", // Blurs the moon behind it
-      background: "rgba(15, 12, 41, 0.1)", // Very slight dark tint
-      borderBottom: "1px solid rgba(255, 255, 255, 0.05)" // Subtle line
+      // Visual Style
+      zIndex: 1000, 
+      backdropFilter: "blur(12px)", 
+      background: "rgba(11, 11, 21, 0.7)", 
+      borderBottom: "1px solid rgba(255, 255, 255, 0.05)"
     }}>
       
-      {/* LEFT: LOGO */}
+      {/* LOGO */}
       <div 
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         style={{ 
           fontSize: "2.5rem", 
           cursor: "pointer",
-          fontFamily: "'Outfit', sans-serif", // Your accent font
-          color: "#ff7a00", // Fox Orange
+          fontFamily: "'Outfit', sans-serif",
+          color: "#ff7a00", 
           textShadow: "0 0 20px rgba(255, 122, 0, 0.3)"
         }}
       >
         𓃦
       </div>
 
-      {/* RIGHT: NAVIGATION */}
+      {/* NAVIGATION */}
       <nav>
         <ul style={{
           display: "flex",
           listStyle: "none",
-          gap: "3vw", // Responsive gap
+          gap: "3vw",
           margin: 0,
           padding: 0
         }}>
@@ -63,19 +73,15 @@ export const Header = () => {
                 style={{
                   background: "none",
                   border: "none",
-                  
-                  // Text Style
                   color: "white",
-                  fontSize: "1.2rem",
-                  fontFamily: "'Outfit', sans-serif", // Your main font
-                  fontWeight: "normal",
+                  fontSize: "1.1rem",
+                  fontFamily: "'Outfit', sans-serif",
+                  fontWeight: "600",
+                  letterSpacing: "0.5px",
                   cursor: "pointer",
-                  
-                  // Animation properties
                   transition: "all 0.3s ease",
                   opacity: 0.8
                 }}
-                // Simple Hover Effect using inline events
                 onMouseEnter={(e) => {
                   e.target.style.color = "#ff7a00";
                   e.target.style.opacity = "1";

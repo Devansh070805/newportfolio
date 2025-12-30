@@ -1,6 +1,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { AboutSmart } from "./AboutSmart";
 
     // --- SHARED STYLES ---
     const sectionStyle = {
@@ -128,6 +129,7 @@ import { motion } from "framer-motion";
   "Docker", // Added: Recommended addition for a profile of this caliber
 
   // Design & Tools
+  "Graphic Designing",
   "Figma",
   "Postman",
   "Streamlit",
@@ -225,7 +227,7 @@ const SocialCard = ({ label, subLabel, icon, link, color }) => {
 export const Contact = () => {
   return (
     <section id="contact" style={{ 
-      minHeight: "90vh", // Fixes the height issue
+      minHeight: "100vh", // Fixes the height issue
       padding: "100px 20px",
       background: "#10101a", // Matches Projects bg
       color: "white", 

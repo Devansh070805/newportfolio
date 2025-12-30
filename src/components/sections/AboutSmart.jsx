@@ -2,43 +2,67 @@ import React from "react";
 
 export const AboutSmart = () => {
   // A longer path with a "Loop-de-loop" in the center
-// Best match for the red curve in your screenshot (viewBox: 0 0 500 400)
+  // Best match for the red curve in your screenshot (viewBox: 0 0 500 400)
 const pathDefinition =
-  "M 120,360 C 40,150 300,520 320,260 S 420,80 520,120";
+  "M 150,300 C 50,300 10,520 20,200 S 180,80 270,300 S 320,180 370,120";
 
 
 
 
-    return (
-    <section style={{ 
-      position: "relative", background: "#0b0b15", color: "white", overflow: "hidden", 
-      padding: "100px 20px", minHeight: "90vh", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 20 
+  return (
+    <section id = "about" style={{ 
+      position: "relative", 
+      background: "#0b0b15", 
+      color: "white", 
+      overflow: "hidden", 
+      // Adjusted padding to allow content to move closer to edges
+      padding: "100px 0", 
+      minHeight: "100vh", 
+      display: "flex", 
+      alignItems: "center", 
+      justifyContent: "center", 
+      zIndex: 20 
     }}>
       
       <style>{`
-        /* === 1. STYLISH NAMASTE (Updated) === */
-        .namaste-text {
-          font-family: sans-serif;
-          font-weight: 900; /* Extra Bold */
-          font-size: clamp(4rem, 8vw, 7rem); /* Big Size */
-          line-height: 1;
-          margin-bottom: 25px;
-          
-          /* Purple-Orange Gradient */
-          background: linear-gradient(135deg, #a56be8 20%, #ff7a00 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          
-          /* Subtle Glow */
-          filter: drop-shadow(0 0 25px rgba(165, 107, 232, 0.2));
-        }
+        /* === 1. STYLISH NAMASTE === */
+       .namaste-text {
+  font-family: "Inter", "Poppins", system-ui, sans-serif;
+  font-weight: 900;
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 0.95;
+  margin-bottom: 28px;
+  letter-spacing: -0.04em;
+
+  /* Rich gradient with depth */
+  background: linear-gradient(
+    135deg,
+    #caa7ff 0%,
+    #a56be8 35%,
+    #ff9a3c 75%,
+    #ff7a00 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Cinematic glow */
+  filter:
+    drop-shadow(0 6px 18px rgba(165, 107, 232, 0))
+    drop-shadow(0 0 35px rgba(255, 122, 0, 0));
+
+  /* Smoother rendering */
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
 
         .bio-text {
           font-family: sans-serif;
           font-size: clamp(1rem, 1.1vw, 1.25rem);
           line-height: 1.7;
           color: #ccc;
-          max-width: 500px;
+          max-width: 550px; /* Slightly wider for better readability */
           margin-bottom: 25px;
         }
 
@@ -47,36 +71,26 @@ const pathDefinition =
 
         /* === 2. MAP & CURVED TEXT === */
         .map-blob {
-           width: 300px; /* Bigger Size */
+           width: 300px;
            height: 300px;
-           
-           /* Map Styling */
            background: linear-gradient(135deg, #2a1b3d, #44315f);
            background-size: cover;
            background-position: center;
-           
-           /* Organic Shape */
            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-           
-           /* Borders */
            border: 3px solid rgba(255, 255, 255, 0.15);
            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-           
            animation: morph-blob 8s ease-in-out infinite, float-organic 6s ease-in-out infinite;
            position: relative;
         }
         
-        /* Static Curved Label (No Rotation) */
         .curved-label {
           position: absolute;
           top: -10%; left: -10%;
           width: 120%; height: 120%;
           pointer-events: none;
           z-index: 5;
-          /* Removed animation: spin-slow ... */
         }
         
-        /* Make text readable */
         .label-text {
           fill: #ff7a00;
           font-family: sans-serif;
@@ -96,19 +110,51 @@ const pathDefinition =
 
       `}</style>
 
-      <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", width: "100%", maxWidth: "1200px", gap: "40px" }}>
+      {/* Main Container: Changed maxWidth to 100% and added padding to push content to edges */}
+      <div style={{ 
+        display: "flex", 
+        flexDirection: "row", 
+        flexWrap: "wrap", 
+        alignItems: "center", 
+        justifyContent: "space-between", /* Pushes Text Left, Map Right */
+        width: "100%", 
+        maxWidth: "1600px", /* Increased max-width */
+        padding: "0 5%", /* Controls how close to the edge the text gets */
+        gap: "40px" 
+      }}>
         
         {/* === LEFT SIDE: TEXT === */}
-        <div style={{ flex: "1 1 500px" }}>
+        {/* Added specific alignment styles */}
+        <div style={{ flex: "1 1 500px", textAlign: "left" }}>
           <h2 className="namaste-text">नमस्ते</h2>
-          
+
           <p className="bio-text">
-            I am Devansh, a fresher at <span className="highlight">Thapar Institute of Engineering and Technology (TIET)</span> in <span className="highlight">Patiala, Punjab</span> <span className="hindi-text">(पटियाला, पंजाब)</span>, pursuing a degree in Bachelor of Engineering (BE/BTech) in Computer Science and Engineering.
+            I’m Devansh, a pre-final year Computer Science student at 
+            Thapar Institute of Engineering and Technology (TIET), 
+            <span className="highlight"> Patiala, Punjab</span>
+            <span className="hindi-text"> (पटियाला, पंजाब)</span>.
           </p>
+
           <p className="bio-text">
-            I completed my schooling from St. Mary’s Convent Inter College in my hometown of <span className="highlight">Lucknow, Uttar Pradesh</span> <span className="hindi-text">(लखनऊ, उत्तर प्रदेश)</span>.
+            I’m pursuing a Bachelor of Engineering (BTech) in Computer Science and Engineering.
+          </p>
+
+          <p className="bio-text">
+            I grew up in <span className="highlight">Lucknow, Uttar Pradesh</span>
+            <span className="hindi-text"> (लखनऊ, उत्तर प्रदेश)</span>, where I completed my schooling at 
+            St. Mary’s Convent Inter College.
+          </p>
+
+          <p className="bio-text">
+            I love building solutions to real-world problems using technology.
+            I enjoy turning ideas into clean, scalable, and meaningful products.
+          </p>
+
+          <p className="bio-text">
+            I’m curious by nature, constantly learning, and always looking for ways to improve systems, experiences, and myself.
           </p>
         </div>
+
 
         {/* === RIGHT SIDE: VISUAL JOURNEY === */}
         <div style={{ flex: "1 1 500px", height: "500px", position: "relative" }}>
@@ -117,7 +163,6 @@ const pathDefinition =
             <svg width="100%" height="100%" viewBox="0 0 400 400" style={{ position: "absolute", top: 0, left: 0, zIndex: 1, overflow: "visible" }}>
                 <path d={pathDefinition} fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="2" strokeDasharray="8, 8" strokeLinecap="round" />
                 
-                {/* Plane Group - Kept exactly as your working code */}
                 <g style={{ offsetPath: `path('${pathDefinition}')`, animation: "move-plane 7s linear infinite" }}>
                     <path transform="rotate(90) scale(1.4) translate(-12, -12)" d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" fill="#ff7a00" />
                 </g>
@@ -126,9 +171,7 @@ const pathDefinition =
             {/* 2. LUCKNOW MAP (Bottom Left) */}
             <div style={{ position: "absolute", bottom: "-10px", left: "10px", zIndex: 2 }}>
                 <div className="map-blob" style={{ animationDelay: "0s" , backgroundImage: "url('/lucknow.png')"  }}>
-                    {/* CURVED TEXT SVG - Fixed for readability on TOP */}
                     <svg className="curved-label" viewBox="0 0 300 300">
-                      {/* Sweep flag changed to 1 for top arc */}
                       <path id="curve1" d="M -10,130 A 100,100 0 0,0 310,150" fill="transparent" />
                       <text width="300" className="label-text">
                         <textPath xlinkHref="#curve1" startOffset="40%" textAnchor="middle">
@@ -140,9 +183,8 @@ const pathDefinition =
             </div>
 
             {/* 3. PATIALA MAP (Top Right) */}
-            <div style={{ position: "absolute", top: "-50px", right: "-150px", zIndex: 2 }}>
+            <div style={{ position: "absolute", top: "-50px", right: "-50px", zIndex: 2 }}>
                 <div className="map-blob" style={{ animationDelay: "-4s" , backgroundImage: "url('/patiala.png')"  }}>
-                   {/* CURVED TEXT SVG - Fixed for readability on TOP */}
                     <svg className="curved-label" viewBox="0 0 300 300">
                       <path id="curve2" d="M -20,170 A 100,100 0 0,1 320,200" fill="transparent" />
                       <text width="300" className="label-text">

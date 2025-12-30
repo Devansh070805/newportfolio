@@ -28,13 +28,19 @@ export const HeroSmart = ({ isBurrowed }) => {
           /* 1. ANIMATIONS */
           @keyframes slide-strip-responsive { from { transform: translateX(0%); } to { transform: translateX(-100%); } }
           @keyframes play-dev-slide { from { transform: translateX(0%); } to { transform: translateX(-100%); } }
-          @keyframes shooting-star { 0% { transform: translateX(0) translateY(0) rotate(45deg); opacity: 1; } 100% { transform: translateX(600px) translateY(600px) rotate(45deg); opacity: 0; } }
           @keyframes float-land { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+          @keyframes play-flag-slide { from { transform: translateX(0%); } to { transform: translateX(-100%); } }
 
-          /* NEW: FLAG SPRITE ANIMATION (10 Frames) */
-          @keyframes play-flag-slide {
-            from { transform: translateX(0%); }
-            to { transform: translateX(-100%); } 
+          /* UPDATED SHOOTING STAR ANIMATION */
+          @keyframes shooting-star { 
+            0% { 
+              transform: translateX(0) translateY(0) rotate(45deg); 
+              opacity: 1; /* Make visible immediately when animation starts */
+            } 
+            100% { 
+              transform: translateX(1000px) translateY(1000px) rotate(45deg); 
+              opacity: 0; /* Fade out at the end */
+            } 
           }
 
           /* 2. TEXT STYLES */
@@ -69,8 +75,8 @@ export const HeroSmart = ({ isBurrowed }) => {
             pointer-events: none;
             background-size: 50px 50px;
             background-image:
-              linear-gradient(to right, rgba(255,255,255,0.3) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(255,255,255,0.3) 1px, transparent 1px);
+              linear-gradient(to right, rgba(255,255,255,0.15) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(255,255,255,0.15) 1px, transparent 1px);
             mask-image: radial-gradient(
               circle 350px at var(--x, 50%) var(--y, 50%), 
               black 0%, 
@@ -97,11 +103,13 @@ export const HeroSmart = ({ isBurrowed }) => {
          <div style={{ position: "absolute", top: "-5%", left: "30%", width: "10%", height: "10%", background: "rgba(200,200,200,0.3)", borderRadius: "50%" }} />
       </div>
 
-      {/* STARS */}
-      <div style={{ position: "absolute", top: "5%", right: "95%", width: "3px", height: "3px", background: "white", boxShadow: "0 0 15px white", borderRadius: "50%", animation: "shooting-star 6s ease-out infinite", animationDelay: "2s", zIndex: 4 }} />
-      <div style={{ position: "absolute", top: "10%", left: "10%", width: "4px", height: "4px", background: "white", boxShadow: "0 0 15px white", borderRadius: "50%", animation: "shooting-star 4s ease-out infinite", animationDelay: "0s", zIndex: 4 }} />
-      <div style={{ position: "absolute", top: "15%", right: "15%", width: "3px", height: "3px", background: "white", boxShadow: "0 0 15px white", borderRadius: "50%", animation: "shooting-star 6s ease-out infinite", animationDelay: "2s", zIndex: 4 }} />
-      <div style={{ position: "absolute", top: "25%", right: "25%", width: "2px", height: "2px", background: "white", boxShadow: "0 0 15px white", borderRadius: "50%", animation: "shooting-star 6s ease-out infinite", animationDelay: "2s", zIndex: 4 }} />
+      {/* STARS - FIXED: Added opacity: 0 to all stars */}
+      <div style={{ position: "absolute", top: "0%", left: "10%", width: "50px", height: "2px", background: "linear-gradient(90deg, transparent, white)", boxShadow: "0 0 10px white", animation: "shooting-star 6s ease-out infinite", animationDelay: "0s", zIndex: 4, opacity: 0 }} />
+      <div style={{ position: "absolute", top: "5%", left: "30%", width: "40px", height: "2px", background: "linear-gradient(90deg, transparent, white)", boxShadow: "0 0 10px white", animation: "shooting-star 4s ease-out infinite", animationDelay: "2s", zIndex: 4, opacity: 0 }} />
+      <div style={{ position: "absolute", top: "15%", left: "50%", width: "30px", height: "3px", background: "linear-gradient(90deg, transparent, white)", boxShadow: "0 0 10px white", animation: "shooting-star 7s ease-out infinite", animationDelay: "1s", zIndex: 4, opacity: 0 }} />
+      <div style={{ position: "absolute", top: "20%", left: "0%", width: "20px", height: "1px", background: "linear-gradient(90deg, transparent, white)", boxShadow: "0 0 10px white", animation: "shooting-star 5s ease-out infinite", animationDelay: "3s", zIndex: 4, opacity: 0 }} />
+      <div style={{ position: "absolute", top: "20%", left: "90%", width: "40px", height: "1px", background: "linear-gradient(90deg, transparent, white)", boxShadow: "0 0 10px white", animation: "shooting-star 5s ease-out infinite", animationDelay: "3s", zIndex: 4, opacity: 0 }} />
+
 
       {/* TEXT SECTION */}
       <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", paddingBottom: "45vh", pointerEvents: "none", zIndex: 30 }}>
